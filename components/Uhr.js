@@ -19,8 +19,9 @@ export default class Uhr extends React.Component {
           hour: '2-digit',
           minute: '2-digit'
         })
-      })
-    }, 60000)
+      });
+      this.props.checkWecker(parseInt(new Date().getTime() / 1000))
+    }, 1000)
   }
 
   render() {
