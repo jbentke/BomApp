@@ -6,14 +6,14 @@ const styles = StyleSheet.create({
     width: 17,
     height: 17,
     margin: 7,
-    backgroundColor: '#525252',
+    backgroundColor: '#a9a9a9',
   },
 
   pipOn: {
     width: 17,
     height: 17,
     margin: 7,
-    backgroundColor: '#48d8b8',
+    backgroundColor: '#e9967a',
   }
 })
 
