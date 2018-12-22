@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import Uhr from './components/Uhr.js'
+import Uhr2 from './components/Uhr2.js'
 import WeckerElement from './components/WeckerElement.js'
 
 export default class App extends React.Component {
@@ -56,6 +57,7 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
         <Uhr checkWecker={this.checkWecker}/>
+        <Uhr2></Uhr2>
         {this.state.weckerArray ? this.state.weckerArray.map((singleWecker, index) => <WeckerElement weckerZeit={singleWecker.weckerZeit} onOffSwitch={singleWecker.onOffSwitch} handleSwitchChange={this.handleSwitchChange} id={singleWecker.id} key={index}/>) : null}
         <Button title={"+"} onPress={this.handleClick} ></Button>
       </View>
