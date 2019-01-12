@@ -19,8 +19,10 @@ export default class HomeScreen extends React.Component {
 
     this.handleSwitchChange = this.handleSwitchChange.bind(this)
     this.handleCloseButton = this.handleCloseButton.bind(this)
-    this.handleClick = this.handleClick.bind(this)
+    this.handleClick = this.handlePlusButtonClick.bind(this)
     this.checkWecker = this.checkWecker.bind(this)
+    this.handlePlusButtonClick = this.handlePlusButtonClick.bind(this)
+    this.addWeckerElement = this.addWeckerElement.bind(this)
   }
 
   handleSwitchChange(weckerId) {
@@ -35,11 +37,11 @@ export default class HomeScreen extends React.Component {
   handleCloseButton(weckerId) {
     altesArray = this.state.weckerArray
     id = this.state.weckerArray.findIndex((element) => element.id == weckerId)
-
+    var i = 0;
     if (id == altesArray.lenght - 1) {
       altesArray.pop()
     } else {
-      for (id = i; i = altesArray.lenght - 1; i++) {
+      for (i = id; i = altesArray.lenght - 1; i++) {
         altesArray[i] = altesArray[i + 1];
       }
 
@@ -51,16 +53,22 @@ export default class HomeScreen extends React.Component {
     })
   }
 
-  handleClick(e) {
+  addWeckerElement(_weckerzeit, _whereAmI, _onOffSwitch) {
     altesArray = this.state.weckerArray
     altesArray.push({
       id: altesArray.length,
-      weckerZeit: 1644884052,
-      whereAmI: "1.Nephi 4:5",
-      onOffSwitch: true
+      weckerZeit: _weckerzeit,
+      whereAmI: _whereAmI,
+      onOffSwitch: _onOffSwitch
     })
     this.setState({
       weckerArray: altesArray
+    })
+  }
+
+  handlePlusButtonClick(e) {
+    this.props.navigation.navigate('WeckerScreen', {
+      addWeckerElement: this.addWeckerElement
     })
   }
 
@@ -85,7 +93,7 @@ export default class HomeScreen extends React.Component {
         <Uhr checkWecker={this.checkWecker}/>
         <Uhr2></Uhr2>
         {this.state.weckerArray ? this.state.weckerArray.map((singleWecker, index) => <WeckerElement weckerZeit={singleWecker.weckerZeit} onOffSwitch={singleWecker.onOffSwitch} handleSwitchChange={this.handleSwitchChange} handleCloseButton={this.handleCloseButton} id={singleWecker.id} key={index}/>) : null}
-        <Button title={"+"} onPress={this.handleClick} ></Button>
+        <Button title={"+"} onPress={this.handlePlusButtonClick} ></Button>
       </View>
       );
   }
