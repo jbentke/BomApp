@@ -5,14 +5,14 @@ const styles = StyleSheet.create({
   pip: {
     width: 17,
     height: 17,
-    margin: 7,
+    margin: 3,
     backgroundColor: '#a9a9a9',
   },
 
   pipOn: {
     width: 17,
     height: 17,
-    margin: 7,
+    margin: 3,
     backgroundColor: '#e9967a',
   }
 })

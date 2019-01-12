@@ -12,6 +12,7 @@ export default class App extends React.Component {
     }
 
     this.handleSwitchChange = this.handleSwitchChange.bind(this)
+    this.handleCloseButton = this.handleCloseButton.bind(this)
     this.handleClick = this.handleClick.bind(this)
     this.checkWecker = this.checkWecker.bind(this)
   }
@@ -22,6 +23,26 @@ export default class App extends React.Component {
     newWeckerArray[id].onOffSwitch = !newWeckerArray[id].onOffSwitch
     this.setState({
       weckerArray: newWeckerArray
+    })
+  }
+
+  handleCloseButton(weckerId) {
+    altesArray = this.state.weckerArray
+    id = this.state.weckerArray.findIndex((element) => element.id == weckerId)
+
+    if (id== altesArray.lenght -1) { 
+      altesArray.pop()
+    }
+    else{
+      for(id=i; i=altesArray.lenght-1;i++){
+        altesArray[i]=altesArray[i+1];
+      }
+
+      altesArray.pop()
+    }
+    
+    this.setState({
+      weckerArray: altesArray
     })
   }
 
@@ -58,7 +79,7 @@ export default class App extends React.Component {
       <View style={styles.container}>
         <Uhr checkWecker={this.checkWecker}/>
         <Uhr2></Uhr2>
-        {this.state.weckerArray ? this.state.weckerArray.map((singleWecker, index) => <WeckerElement weckerZeit={singleWecker.weckerZeit} onOffSwitch={singleWecker.onOffSwitch} handleSwitchChange={this.handleSwitchChange} id={singleWecker.id} key={index}/>) : null}
+        {this.state.weckerArray ? this.state.weckerArray.map((singleWecker, index) => <WeckerElement weckerZeit={singleWecker.weckerZeit} onOffSwitch={singleWecker.onOffSwitch} handleSwitchChange={this.handleSwitchChange} handleCloseButton={this.handleCloseButton} id={singleWecker.id} key={index}/>) : null}
         <Button title={"+"} onPress={this.handleClick} ></Button>
       </View>
       );
