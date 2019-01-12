@@ -33,15 +33,16 @@ export default class Clock2 extends React.Component {
         justifyContent: 'center',
 
       }}>
+      
          <BinaryDigit digitArray={this.state.digits[0][0]} />
          <BinaryDigit digitArray={this.state.digits[0][1]} />
          <View style={{
-        marginRight: 15
+        marginRight: 10
       }}/>
          <BinaryDigit digitArray={this.state.digits[1][0]} />
          <BinaryDigit digitArray={this.state.digits[1][1]} />
          <View style={{
-        marginRight: 15
+        marginRight: 10
       }}/>
          <BinaryDigit digitArray={this.state.digits[2][0]} />
          <BinaryDigit digitArray={this.state.digits[2][1]} />
