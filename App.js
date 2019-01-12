@@ -4,7 +4,12 @@ import Uhr from './components/Uhr.js'
 import Uhr2 from './components/Uhr2.js'
 import WeckerElement from './components/WeckerElement.js'
 
-export default class App extends React.Component {
+export default class HomeScreen extends React.Component {
+
+  static navigationOptions = {
+    title: 'Welcome',
+  };
+
   constructor(props) {
     super(props);
     this.state = {

@@ -28,11 +28,21 @@ export default class Clock2 extends React.Component {
 
     return <View >
         <View style={{
-        
+
         flexDirection: 'row',
         justifyContent: 'center',
-        
+
       }}>
+         <BinaryDigit digitArray={this.state.digits[0][0]} />
+         <BinaryDigit digitArray={this.state.digits[0][1]} />
+         <View style={{
+        marginRight: 15
+      }}/>
+         <BinaryDigit digitArray={this.state.digits[1][0]} />
+         <BinaryDigit digitArray={this.state.digits[1][1]} />
+         <View style={{
+        marginRight: 15
+      }}/>
          <BinaryDigit digitArray={this.state.digits[2][0]} />
          <BinaryDigit digitArray={this.state.digits[2][1]} />
         </View>

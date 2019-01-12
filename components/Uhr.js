@@ -7,7 +7,8 @@ export default class Uhr extends React.Component {
     this.state = {
       zeit: new Date().toLocaleTimeString([], {
         hour: '2-digit',
-        minute: '2-digit'
+        minute: '2-digit',
+        hour12: false
       }),
     }
   }
@@ -17,7 +18,8 @@ export default class Uhr extends React.Component {
       this.setState({
         zeit: new Date().toLocaleTimeString([], {
           hour: '2-digit',
-          minute: '2-digit'
+          minute: '2-digit',
+          hour12: false
         })
       });
       this.props.checkWecker(parseInt(new Date().getTime() / 1000))
